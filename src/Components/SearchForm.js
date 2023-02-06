@@ -1,34 +1,54 @@
 import React, { useState } from 'react';
 
 const SearchForm = () => {
-  const [dates, setDates] = useState({
-    startDate: null,
-    endDate: null
-  });
   const [location, setLocation] = useState('');
-  const [guests, setGuests] = useState(1);
+  const [checkInDate, setCheckInDate] = useState('');
+  const [checkOutDate, setCheckOutDate] = useState('');
+  const [guests, setGuests] = useState('');
 
-  const handleDatesChange = (startDate, endDate) => {
-    setDates({ startDate, endDate });
-  };
-
-  const handleLocationChange = location => {
-    setLocation(location);
-  };
-
-  const handleGuestsChange = guests => {
-    setGuests(guests);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Perform the search for hotels using the provided values
   };
 
   return (
-    <form>
-      <input
-        type="text"
-        placeholder="Location"
-        value={location}
-        onChange={e => handleLocationChange(e.target.value)}
-      />
-      <input type="number" value={guests} onChange={e => handleGuestsChange(e.target.value)} />
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="location">Location:</label>
+        <input
+          type="text"
+          id="location"
+          value={location}
+          onChange={(event) => setLocation(event.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="check-in-date">Check-in Date:</label>
+        <input
+          type="date"
+          id="check-in-date"
+          value={checkInDate}
+          onChange={(event) => setCheckInDate(event.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="check-out-date">Check-out Date:</label>
+        <input
+          type="date"
+          id="check-out-date"
+          value={checkOutDate}
+          onChange={(event) => setCheckOutDate(event.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="guests">Guests:</label>
+        <input
+          type="number"
+          id="guests"
+          value={guests}
+          onChange={(event) => setGuests(event.target.value)}
+        />
+      </div>
       <button type="submit">Search</button>
     </form>
   );
