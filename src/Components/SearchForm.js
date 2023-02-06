@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "../css/SearchForm.css";
 
 const SearchForm = () => {
   const [location, setLocation] = useState('');
@@ -12,7 +13,7 @@ const SearchForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="search-form" onSubmit={handleSubmit}>
       <div>
         <label htmlFor="location">Location:</label>
         <input

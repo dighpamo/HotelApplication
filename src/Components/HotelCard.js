@@ -1,8 +1,9 @@
 import React from 'react';
+import '../css/HotelCard.css';
 
 const HotelCard = ({ hotel }) => {
   return (
-    <div>
+    <div className="hotel-card">
       <img src={hotel.image} alt={hotel.name} />
       <h3>{hotel.name}</h3>
       <div>

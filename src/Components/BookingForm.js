@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import '../css/BookingForm.css';
+
 
 const BookingForm = ({ hotel, onSubmit }) => {
   const [guestName, setGuestName] = useState('');
@@ -10,37 +12,40 @@ const BookingForm = ({ hotel, onSubmit }) => {
     onSubmit({ guestName, arrivalDate, departureDate });
   };
 
-  return (
-    <form onSubmit={handleSubmit}>
+ return (
+    <form className="booking-form" onSubmit={handleSubmit}>
       <h3>{hotel.name}</h3>
       <div>
-        <label htmlFor="guest-name">Guest Name:</label>
+        <label htmlFor="guest-name" className="booking-form__label">Guest Name:</label>
         <input
           type="text"
           id="guest-name"
+          className="booking-form__input"
           value={guestName}
           onChange={(e) => setGuestName(e.target.value)}
         />
       </div>
       <div>
-        <label htmlFor="arrival-date">Arrival Date:</label>
+        <label htmlFor="arrival-date" className="booking-form__label">Arrival Date:</label>
         <input
           type="date"
           id="arrival-date"
+          className="booking-form__input"
           value={arrivalDate}
           onChange={(e) => setArrivalDate(e.target.value)}
         />
       </div>
       <div>
-        <label htmlFor="departure-date">Departure Date:</label>
+        <label htmlFor="departure-date" className="booking-form__label">Departure Date:</label>
         <input
           type="date"
           id="departure-date"
+          className="booking-form__input"
           value={departureDate}
           onChange={(e) => setDepartureDate(e.target.value)}
         />
       </div>
-      <button type="submit">Book</button>
+      <button type="submit" className="booking-form__submit">Book</button>
     </form>
   );
 };

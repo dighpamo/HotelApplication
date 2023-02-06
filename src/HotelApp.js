@@ -3,6 +3,7 @@ import SearchForm from './Components/SearchForm';
 import HotelList from './Components/HotelList';
 import BookingForm from './Components/BookingForm';
 import Confirmation from './Components/Confirmation';
+import './css/App.css';
 
 
 class App extends React.Component {
